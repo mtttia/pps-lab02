@@ -49,4 +49,10 @@ class Part4Test {
     assertEquals(result, show(expression))
   }
 
+  @Test def testShowComplexExpression(): Unit = {
+    val expression: Expr = Expr.Multiply(Expr.Add(Expr.Literal(6), Expr.Literal(4)), Expr.Literal(5))
+    val result: String = "(6 + 4) * 5"
+    assertEquals(result, show(expression))
+  }
+
 }
