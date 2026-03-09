@@ -12,4 +12,8 @@ object Part4 {
     case Literal(number) => number
     case Add(expr1, expr2) => evaluate(expr1) + evaluate(expr2)
     case Multiply(expr1, expr2) => evaluate(expr1) * evaluate(expr2)
+
+  def show(expr:Expr):String = expr match {
+    case Literal(number) => number.toString()
+  }
 }

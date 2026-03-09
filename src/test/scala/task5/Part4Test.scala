@@ -1,6 +1,6 @@
 package task5
 
-import it.unibo.pps.u02.Part4.{Expr, evaluate}
+import it.unibo.pps.u02.Part4.{Expr, evaluate, show}
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
@@ -29,6 +29,12 @@ class Part4Test {
     val expression:Expr = Expr.Multiply(Expr.Add(Expr.Literal(6), Expr.Literal(4)), Expr.Literal(5))
     val result:Int = 50
     assertEquals(result, evaluate(expression))
+  }
+
+  @Test def testShowLiteral(): Unit = {
+    val expression: Expr = Expr.Literal(6)
+    val result: String = "6"
+    assertEquals(result, show(expression))
   }
 
 }
