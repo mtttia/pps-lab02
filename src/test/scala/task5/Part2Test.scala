@@ -1,7 +1,7 @@
 package task5
 
 import it.unibo.pps.u02.Part2
-import it.unibo.pps.u02.Part2.neg
+import it.unibo.pps.u02.Part2.{checkRelation, neg}
 import org.junit.Assert.{assertEquals, assertFalse, assertTrue}
 import org.junit.Test
 
@@ -30,4 +30,18 @@ class Part2Test :
     assertTrue(notEmpty("foo"))
     assertFalse(notEmpty(""))
     assertTrue(notEmpty("foo") && !notEmpty(""))
+  }
+
+  @Test def checkRelationTest(): Unit = {
+    val x: Int = 3
+    val y: Int = 4
+    val z: Int = 4
+    assertTrue(checkRelation(x,y,z))
+  }
+
+  @Test def checkRelationTestNotSatisfied(): Unit = {
+    val x: Int = 3
+    val y: Int = 5
+    val z: Int = 4
+    assertFalse(checkRelation(x,y,z))
   }
