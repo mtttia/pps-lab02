@@ -1,6 +1,6 @@
 package it.unibo.pps.u02
 
-object Part2 extends App {
+object Part2 {
 
   def positive(number: Int):String = number match
     case n if n >= 0 => "Positive"
