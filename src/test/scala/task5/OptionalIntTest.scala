@@ -27,3 +27,9 @@ class OptionalIntTest:
     val empty = OptionalInt.Empty()
     val expr: Int => Int = _ + 1
     assertEquals(OptionalInt.Empty(), OptionalInt.mapInt(empty)(expr))
+
+  @Test def testMapIntWithNotEmpty(): Unit =
+    val notEmpty = OptionalInt.Just(5)
+    val expr: Int => Int = _ + 1
+    val result:OptionalInt.Just = OptionalInt.Just(6)
+    assertEquals(result, OptionalInt.mapInt(notEmpty)(expr))
