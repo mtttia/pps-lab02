@@ -11,4 +11,6 @@ object Part2 extends App {
     case _ => true
 
   def checkRelation(x: Int, y: Int, z:Int):Boolean = x <= y && y == z
+  
+  def curriedCheckRelation(x: Int)(y:Int)(z:Int):Boolean = x <= y && y == z
 }
