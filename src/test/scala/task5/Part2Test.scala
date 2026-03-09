@@ -1,7 +1,7 @@
 package task5
 
 import it.unibo.pps.u02.Part2
-import it.unibo.pps.u02.Part2.{checkRelation, curriedCheckRelation, neg, valCheckRelation, valCurriedCheckRelation}
+import it.unibo.pps.u02.Part2.{checkRelation, compose, curriedCheckRelation, neg, valCheckRelation, valCurriedCheckRelation}
 import org.junit.Assert.{assertEquals, assertFalse, assertTrue}
 import org.junit.Test
 
@@ -86,4 +86,12 @@ class Part2Test :
     val y: Int = 5
     val z: Int = 4
     assertFalse(valCurriedCheckRelation(x)(y)(z))
+  }
+
+  @Test def testCompose():Unit ={
+    val result: Int = 9
+    val f:Int => Int = _ - 1
+    val g:Int => Int = _ * 2
+    val x: Int = 5
+    assertEquals(result, compose(f, g)(x))
   }

@@ -17,4 +17,6 @@ object Part2 extends App {
   val valCheckRelation: (Int, Int, Int)=>Boolean = (x,y,z) => x <= y && y == z
 
   val valCurriedCheckRelation: Int => Int => Int => Boolean = x => y => z => x <= y && y == z
+
+  def compose(f: Int => Int, g: Int => Int)(x: Int): Int = f(g(x))
 }
