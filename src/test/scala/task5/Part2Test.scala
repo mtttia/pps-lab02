@@ -1,7 +1,7 @@
 package task5
 
 import it.unibo.pps.u02.Part2
-import it.unibo.pps.u02.Part2.{checkRelation, curriedCheckRelation, neg}
+import it.unibo.pps.u02.Part2.{checkRelation, curriedCheckRelation, neg, valCheckRelation, valCurriedCheckRelation}
 import org.junit.Assert.{assertEquals, assertFalse, assertTrue}
 import org.junit.Test
 
@@ -32,30 +32,58 @@ class Part2Test :
     assertTrue(notEmpty("foo") && !notEmpty(""))
   }
 
-  @Test def checkRelationTest(): Unit = {
+  @Test def testCheckRelation(): Unit = {
     val x: Int = 3
     val y: Int = 4
     val z: Int = 4
     assertTrue(checkRelation(x,y,z))
   }
 
-  @Test def checkRelationTestNotSatisfied(): Unit = {
+  @Test def testCheckRelationTestNotSatisfied(): Unit = {
     val x: Int = 3
     val y: Int = 5
     val z: Int = 4
     assertFalse(checkRelation(x,y,z))
   }
 
-  @Test def checkCurriedRelationTest(): Unit = {
+  @Test def testCheckCurriedRelation(): Unit = {
     val x: Int = 3
     val y: Int = 4
     val z: Int = 4
     assertTrue(curriedCheckRelation(x)(y)(z))
   }
 
-  @Test def checkCurriedRelationTestNotSatisfied(): Unit = {
+  @Test def testCheckCurriedRelationTestNotSatisfied(): Unit = {
     val x: Int = 3
     val y: Int = 5
     val z: Int = 4
     assertFalse(curriedCheckRelation(x)(y)(z))
+  }
+
+  @Test def testValCheckRelation(): Unit = {
+    val x: Int = 3
+    val y: Int = 4
+    val z: Int = 4
+    assertTrue(valCheckRelation(x, y, z))
+  }
+
+  @Test def testValCheckRelationTestNotSatisfied(): Unit = {
+    val x: Int = 3
+    val y: Int = 5
+    val z: Int = 4
+    assertFalse(valCheckRelation(x, y, z))
+  }
+
+  @Test def testValCheckCurriedRelation(): Unit = {
+    val x: Int = 3
+    val y: Int = 4
+    val z: Int = 4
+    assertTrue(valCurriedCheckRelation(x)(y)(z))
+  }
+
+  @Test def testValCheckCurriedRelationTestNotSatisfied(): Unit = {
+    val x: Int = 3
+    val y: Int = 5
+    val z: Int = 4
+    assertFalse(valCurriedCheckRelation(x)(y)(z))
   }
