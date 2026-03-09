@@ -33,3 +33,8 @@ class OptionalIntTest:
     val expr: Int => Int = _ + 1
     val result:OptionalInt.Just = OptionalInt.Just(6)
     assertEquals(result, OptionalInt.mapInt(notEmpty)(expr))
+
+  @Test def testFilterEmpty(): Unit =
+    val empty = OptionalInt.Empty()
+    val filter: Int => Boolean = _ > 5
+    assertEquals(OptionalInt.Empty(), OptionalInt.filter(empty)(filter))
