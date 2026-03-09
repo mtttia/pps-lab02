@@ -1,7 +1,8 @@
 package task5
 
 import it.unibo.pps.u02.Part2
-import org.junit.Assert.{assertEquals, assertTrue}
+import it.unibo.pps.u02.Part2.neg
+import org.junit.Assert.{assertEquals, assertFalse, assertTrue}
 import org.junit.Test
 
 class Part2Test :
@@ -21,4 +22,12 @@ class Part2Test :
     val zeroNumber: Int = 0
     val positiveString: String = "Positive"
     assertEquals(positiveString, Part2.positive(zeroNumber))
+  }
+
+  @Test def testNegOnNonEmpty(): Unit = {
+    val empty: String => Boolean = _ == ""
+    val notEmpty = neg(empty)
+    assertTrue(notEmpty("foo"))
+    assertFalse(notEmpty(""))
+    assertTrue(notEmpty("foo") && !notEmpty(""))
   }
