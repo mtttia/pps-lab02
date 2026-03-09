@@ -23,8 +23,14 @@ object Optionals:
       case Just(value) => Just(transform(value))
       case _ => Empty()
 
-    def filter(optionalInt: OptionalInt)(filter: Int => Boolean): OptionalInt = optionalInt match
-      case _ => Empty()
+    def filter(optionalInt: OptionalInt)(filter: Int => Boolean): OptionalInt = {
+      def filterJust(just: OptionalInt.Just):OptionalInt = just match
+        case Just(value) if filter(value) => just
+        case _ => OptionalInt.Empty()
+      optionalInt match
+        case Just(value) => filterJust(Just(value))
+        case _ => Empty()
+    }
 
 @main def tryOptionals(): Unit =
   import Optionals.* // to work with Optionals (to see OptionalInt type)

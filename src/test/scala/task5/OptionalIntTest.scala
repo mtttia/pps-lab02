@@ -38,3 +38,13 @@ class OptionalIntTest:
     val empty = OptionalInt.Empty()
     val filter: Int => Boolean = _ > 5
     assertEquals(OptionalInt.Empty(), OptionalInt.filter(empty)(filter))
+
+  @Test def testFilterJust(): Unit =
+    val just = OptionalInt.Just(7)
+    val filter: Int => Boolean = _ > 5
+    assertEquals(just, OptionalInt.filter(just)(filter))
+
+  @Test def testFilterNotMatchedJust(): Unit =
+    val just = OptionalInt.Just(4)
+    val filter: Int => Boolean = _ > 5
+    assertEquals(OptionalInt.Empty(), OptionalInt.filter(just)(filter))
