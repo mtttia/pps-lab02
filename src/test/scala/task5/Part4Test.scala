@@ -37,4 +37,10 @@ class Part4Test {
     assertEquals(result, show(expression))
   }
 
+  @Test def testShowAdd(): Unit = {
+    val expression: Expr = Expr.Add(Expr.Literal(6), Expr.Literal(4))
+    val result: String = "(6 + 4)"
+    assertEquals(result, show(expression))
+  }
+
 }
