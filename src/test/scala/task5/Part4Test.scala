@@ -43,4 +43,10 @@ class Part4Test {
     assertEquals(result, show(expression))
   }
 
+  @Test def testShowMultiply(): Unit = {
+    val expression: Expr = Expr.Multiply(Expr.Literal(6), Expr.Literal(4))
+    val result: String = "6 * 4"
+    assertEquals(result, show(expression))
+  }
+
 }
